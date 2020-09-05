@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function Person(driver) {
+            this.fname = driver.fname;
+            this.lname = driver.lname;
+            this.age = driver.age;
+        }
+
+        function Driver(driver) {
+            Person.call(this, driver);
+            this.expiriance = driver.expiriance;
+        }
+
+        function Engine(engine) {
+            this.power = engine.power;
+            this.company = engine.company;
+        }
+
+        function Car(car, driver, engine) {
+            this.model = car.model;
+            this.classauto = car.classauto;
+            this.weight = car.weight;
+            this.driver = driver;
+            this.engine = engine;
+            this.Start = function() {
+                alert("Поехали");
+            }
+            this.stop = function() {
+                alert("Остановливаемся")
+            }
+            this.turnRight = function() {
+                alert("Поворот направо")
+            }
+            this.turnLeft = function() {
+                alert("Поворот налево")
+            }
+            this.printInfo = function() {
+                document.write("<p>" +
+                    this.model + "<br>" +
+                    this.classauto + "<br>" +
+                    this.weight + "<br>" +
+                    this.driver.fname + "<br>" +
+                    this.driver.lname + "<br>" +
+                    this.driver.age + "<br>" +
+                    this.driver.expiriance + "<br>" +
+                    this.engine.power + "<br>" +
+                    this.engine.company + "<br>" +
+                    "</p>");
+            }
+        }
+
+        function Lorry(lorry, driver, engine) {
+            this.carrying = lorry.carrying;
+            Car.call(this, lorry, driver, engine);
+        }
+
+        function SportCar(scar, driver, engine) {
+            this.speed = scar.speed;
+            Car.call(this, scar, driver, engine);
+        }
+
+        let YarikVodila = new Driver({
+            fname: "Ярик",
+            lname: "Водила",
+            age: 30,
+            expiriance: 3
+        });
+
+        let Dvig = new Engine({
+            power: 123,
+            company: "BMW"
+        });
+
+        let Furra = new Lorry({
+                carrying: 100000,
+                model: "Bantam BRC",
+                classauto: "ABC",
+                weight: 10000
+            },
+            YarikVodila,
+            Dvig
+        );
+
+        let sport = new SportCar({
+                speed: 100,
+                model: "Tesla",
+                classauto: "ABC",
+                weight: 100
+            }, YarikVodila,
+            Dvig);
+        window.onload = function() {
+                Furra.printInfo();
+                sport.printInfo();
+            }
+            /* let driverOne = new Lorry({
+                carrying: 300,
+                driver: new Driver({
+                    fname: "FirstName",
+                    lname: "SecondName",
+                    age: "26 years",
+                    expiriance: " ",
+                }),
+                engine: new Engine({
+                    power: 0,
+                    company: " "
+                }),
+                car: new Car({
+                    model: "Bantam BRC",
+                    classauto: "",
+                    weight: "",
+                }),
+            });
+            console.log(driverOne); */
+    </script>
+</head>
+
+<body></body>
+
+</html>
