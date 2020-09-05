@@ -17,6 +17,13 @@
             this.expiriance = driver.expiriance;
         }
 
+        let YarikVodila = new Driver({
+            fname: "Sanya",
+            lname: "Водила",
+            age: 30,
+            expiriance: 3,
+        });
+
         function Engine(engine) {
             this.power = engine.power;
             this.company = engine.company;
@@ -30,29 +37,40 @@
             this.engine = engine;
             this.Start = function() {
                 alert("Поехали");
-            }
+            };
             this.stop = function() {
-                alert("Остановливаемся")
-            }
+                alert("Остановливаемся");
+            };
             this.turnRight = function() {
-                alert("Поворот направо")
-            }
+                alert("Поворот направо");
+            };
             this.turnLeft = function() {
-                alert("Поворот налево")
-            }
+                alert("Поворот налево");
+            };
             this.printInfo = function() {
-                document.write("<p>" +
-                    this.model + "<br>" +
-                    this.classauto + "<br>" +
-                    this.weight + "<br>" +
-                    this.driver.fname + "<br>" +
-                    this.driver.lname + "<br>" +
-                    this.driver.age + "<br>" +
-                    this.driver.expiriance + "<br>" +
-                    this.engine.power + "<br>" +
-                    this.engine.company + "<br>" +
-                    "</p>");
-            }
+                document.write(
+                    "<p>" +
+                    this.model +
+                    "<br>" +
+                    this.classauto +
+                    "<br>" +
+                    this.weight +
+                    "<br>" +
+                    this.driver.fname +
+                    "<br>" +
+                    this.driver.lname +
+                    "<br>" +
+                    this.driver.age +
+                    "<br>" +
+                    this.driver.expiriance +
+                    "<br>" +
+                    this.engine.power +
+                    "<br>" +
+                    this.engine.company +
+                    "<br>" +
+                    "</p>"
+                );
+            };
         }
 
         function Lorry(lorry, driver, engine) {
@@ -65,23 +83,16 @@
             Car.call(this, scar, driver, engine);
         }
 
-        let YarikVodila = new Driver({
-            fname: "Ярик",
-            lname: "Водила",
-            age: 30,
-            expiriance: 3
-        });
-
         let Dvig = new Engine({
             power: 123,
-            company: "BMW"
+            company: "BMW",
         });
 
         let Furra = new Lorry({
                 carrying: 100000,
                 model: "Bantam BRC",
                 classauto: "ABC",
-                weight: 10000
+                weight: 10000,
             },
             YarikVodila,
             Dvig
@@ -91,32 +102,15 @@
                 speed: 100,
                 model: "Tesla",
                 classauto: "ABC",
-                weight: 100
-            }, YarikVodila,
-            Dvig);
+                weight: 100,
+            },
+            YarikVodila,
+            Dvig
+        );
         window.onload = function() {
-                Furra.printInfo();
-                sport.printInfo();
-            }
-            /* let driverOne = new Lorry({
-                carrying: 300,
-                driver: new Driver({
-                    fname: "FirstName",
-                    lname: "SecondName",
-                    age: "26 years",
-                    expiriance: " ",
-                }),
-                engine: new Engine({
-                    power: 0,
-                    company: " "
-                }),
-                car: new Car({
-                    model: "Bantam BRC",
-                    classauto: "",
-                    weight: "",
-                }),
-            });
-            console.log(driverOne); */
+            Furra.printInfo();
+            sport.printInfo();
+        };
     </script>
 </head>
 
